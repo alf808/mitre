@@ -13,6 +13,7 @@ from pyattck import Attck
 attack = Attck()
 
 def grab_techniques(act):
+    '''this will grab techniques used by threat actors'''
     for technique in attack.techniques:
         if 'Remote Desktop Protocol' == technique.name:
             print(f"Malware technique name: {technique.name}")
@@ -22,6 +23,7 @@ def grab_techniques(act):
 
 
 def grab_actor(act):
+    '''find if actor exists in database then invoke techniques'''
     for actor in attack.actors:
         if actor.name == act:
             print('Actor name: ' + actor.name)
@@ -29,7 +31,9 @@ def grab_actor(act):
                 if technique.name == 'Remote Desktop Protocol':
                     grab_techniques(actor.name)
 
+                    
 def grab_malware(mal):
+    '''grab malware and mitigation techniques'''
     for mw in attack.malwares:
         if mw.name == mal:
             print(f'Malware: ' + mw.name)
