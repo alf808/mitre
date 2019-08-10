@@ -5,7 +5,7 @@ Currently the app only handles Remote Desktop Protocol technique for the actor o
 
 Don't run both flags concurrently.
     -a flag will return an actor with RDP as a technique with recommended mitigation
-    -m flag will return entered malware with mitigation for that malware
+    -m flag will return entered malware with associated attack techniques
 
 ## Usage:
         ./app.py -actor <ACTOR>

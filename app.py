@@ -33,11 +33,11 @@ def grab_actor(act):
 
                     
 def grab_malware(mal):
-    '''grab malware and mitigation techniques'''
+    '''grab malware and attack techniques'''
     for mw in attack.malwares:
         if mw.name == mal:
             print(f'Malware: ' + mw.name)
-            print('Techniques associated with: ' + mw.name)
+            print('Attack techniques associated with: ' + mw.name)
             for technique in mw.techniques:
                 print('\t' + technique.name)
 
