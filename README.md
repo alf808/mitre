@@ -8,12 +8,12 @@ Don't run both flags concurrently.
     -m flag will return entered malware with mitigation for that malware
 
 ## Usage:
-        ./app.py -a <ACTOR>
-        ./app.py -m <MALWARE>
+        ./app.py -actor <ACTOR>
+        ./app.py -mal <MALWARE>
 
 ## Sample:
-        ./app.py -a Axiom
-        ./app.py -m Proton
+        ./app.py -actor Axiom
+        ./app.py -mal Proton
 
 
 

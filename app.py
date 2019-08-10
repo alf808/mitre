@@ -1,23 +1,22 @@
 #!/home/nemo/PycharmProjects/mitre/venv/bin/python3
 '''This application will extract information from the pyattck database.
 Currently the app only handles Remote Desktop Protocol technique for the actor option.
-Usage:  ./app.py -a <ACTOR>
-        ./app.py -m <MALWARE>
+Usage:  ./app.py -actor <ACTOR>
+        ./app.py -mal <MALWARE>
 
 Sample:
-        ./app.py -a Axiom
-        ./app.py -m Proton
+        ./app.py -actor Axiom
+        ./app.py -mal Proton
 '''
-
 import argparse
 from pyattck import Attck
 attack = Attck()
 
-
-def grab_techniques(actor):
+def grab_techniques(act):
     for technique in attack.techniques:
         if 'Remote Desktop Protocol' == technique.name:
-            print(f"Technique name: {technique.name}")
+            print(f"Malware technique name: {technique.name}")
+            print("These are mitigations: ")
             for mitigation in technique.mitigation:
                 print('\t' + mitigation.name)
 
@@ -43,8 +42,8 @@ if __name__ == "__main__":
     
     parser = argparse.ArgumentParser(description="")
     # group = parser.add_mutually_exclusive_group()
-    parser.add_argument('-a', help="actor will return techniques and mitigation")
-    parser.add_argument('-m', help="malware will return mitigation")
+    parser.add_argument('-actor', help="actor will return techniques and mitigation")
+    parser.add_argument('-mal', help="malware will return mitigation")
     args = parser.parse_args()
 
     if args.actor:
