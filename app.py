@@ -28,6 +28,13 @@ def grab_techniques(att):
                 print('\t' + mitigation.name)
 
 
+def grab_tactics(tac):
+    for tactic in attack.tactics:
+        if tac.lower() == tactic.name.lower():
+            for tec in tactic.techniques:
+                print('\t' + tec.name)
+
+
 def grab_actor(act):
     '''find if actor exists in database then invoke techniques'''
     for actor in attack.actors:
@@ -68,13 +75,19 @@ def print_attacks():
     print("Here is a sample list of attack techniques.")
     attack_list = [att.name for att in attack.techniques]
     print(*attack_list, sep = "\t")
+
+
+def print_tactics():
+    print("Here is a sample list of tactics.")
+    tactics_list = [att.name for att in attack.tactics]
+    print(*tactics_list, sep = "\t")
     
 
 def main():
     choice = "0"
     while True:
         print("\nMenu Choices:")
-        print("(1) Threat Actor\t (2) Type of Malware\t (3) Attack to Mitigate\t (4) Exit")
+        print("(1) Threat Actor\t(2) Malware\t(3) Attack to Mitigate\t(4) Tactics\t(x) Exit")
 
         choice = input("Enter your choice:  ")
 
@@ -91,6 +104,10 @@ def main():
             type = input("Attack to mitigate: ")
             grab_techniques(type)
         elif choice == "4":
+            print_tactics()
+            type = input("Tactic techniques: ")
+            grab_tactics(type)
+        elif choice == "x":
             sys.exit("Thanks for wasting our time")
         else:
             msg = random.choice(error_list)
