@@ -3,20 +3,22 @@
 Currently the app only handles Remote Desktop Protocol technique for the actor option.
 Usage:  ./app.py -actor <ACTOR>
         ./app.py -mal <MALWARE>
+        ./app.py -attack <ATTACK>
 
 Sample:
         ./app.py -actor Axiom
         ./app.py -mal Proton
+        ./app.py -attack Scripting
 '''
 import argparse
 from pyattck import Attck
 attack = Attck()
 
-def grab_techniques(act):
+def grab_techniques(att):
     '''this will grab techniques used by threat actors'''
     for technique in attack.techniques:
-        if 'Remote Desktop Protocol' == technique.name:
-            print(f"Malware technique name: {technique.name}")
+        if technique.name == att:
+            print(f"Attack technique name: {technique.name}")
             print("These are mitigations: ")
             for mitigation in technique.mitigation:
                 print('\t' + mitigation.name)
@@ -27,9 +29,10 @@ def grab_actor(act):
     for actor in attack.actors:
         if actor.name == act:
             print('Actor name: ' + actor.name)
+            print('Techniques used:')
             for technique in actor.techniques:
-                if technique.name == 'Remote Desktop Protocol':
-                    grab_techniques(actor.name)
+                print('\t' + technique.name)
+                #     grab_techniques(actor.name)
 
                     
 def grab_malware(mal):
@@ -46,11 +49,14 @@ if __name__ == "__main__":
     
     parser = argparse.ArgumentParser(description="")
     # group = parser.add_mutually_exclusive_group()
-    parser.add_argument('-actor', help="actor will return techniques and mitigation")
-    parser.add_argument('-mal', help="malware will return mitigation")
+    parser.add_argument('-actor', help="actor will return techniques")
+    parser.add_argument('-mal', help="malware will return attack technique")
+    parser.add_argument('-attack', help="attack will return mitigation techniques")
     args = parser.parse_args()
 
     if args.actor:
         grab_actor(args.actor)
+    elif args.attack:
+        grab_techniques(args.attack)
     else:
         grab_malware(args.mal)
