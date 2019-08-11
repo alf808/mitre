@@ -13,8 +13,10 @@ Sample:
 import argparse
 from pyattck import Attck
 import sys
+import random
 attack = Attck()
 
+error_list = ["You Chose Poorly", "Jen says: Are you fricking serious!", "Smooth move exlax!", "Hey lolo make mo bettah choice!"]
 def grab_techniques(att):
     '''this will grab techniques used by threat actors'''
     for technique in attack.techniques:
@@ -86,7 +88,8 @@ def main():
         elif choice == "4":
             sys.exit("Thanks for wasting our time")
         else:
-            print("Read this is Jens voice: Are you fricking serious!")
+            msg = random.choice(error_list)
+            print("\n" + msg)
             
 
 if __name__ == "__main__":
