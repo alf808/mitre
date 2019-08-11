@@ -1,21 +1,12 @@
 # Threat Actor and Malware Enumeration
 
-This application will extract information from the pyattck database.
+This application will extract information from the pyattck database. 
 
-    -actor flag will return an actor with RDP as a technique with recommended mitigation
-    -mal flag will return entered malware with associated attack techniques
-    -attack flag will return the mitigation techniques against the attack
 
 
 ## Usage:
-        ./app.py -actor <ACTOR>
-        ./app.py -mal <MALWARE>
-        ./app.py -attack <ATTACK>
+                ./app.py
+Upon invoking app, follow menu options. Once you select an option, a list of possible names will be shown. You will then be prompted to pick one of those names.
 
-## Sample:
-        ./app.py -actor Axiom
-        ./app.py -mal Proton
-        ./app.py -attack Scripting
-
-
+![menu_choice.png](menu_choice.png)
 
