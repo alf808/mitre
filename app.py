@@ -1,14 +1,11 @@
 #!/home/nemo/PycharmProjects/mitre/venv/bin/python3
 '''This application will extract information from the pyattck database.
-Currently the app only handles Remote Desktop Protocol technique for the actor option.
-Usage:  ./app.py -actor <ACTOR>
-        ./app.py -mal <MALWARE>
-        ./app.py -attack <ATTACK>
 
-Sample:
-        ./app.py -actor Axiom
-        ./app.py -mal Proton
-        ./app.py -attack Scripting
+Usage:
+                ./app.py
+Upon invoking app, follow menu options. Once you select an option, a list of possible names will be shown. You will then be prompted to pick one of those names.
+
+If you choose an invalid menu option, you will get an error message and be returned to the menu.
 '''
 import argparse
 from pyattck import Attck
