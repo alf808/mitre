@@ -32,7 +32,6 @@ def grab_actor(act):
             print('Techniques used:')
             for technique in actor.techniques:
                 print('\t' + technique.name)
-                #     grab_techniques(actor.name)
 
                     
 def grab_malware(mal):
@@ -48,10 +47,11 @@ def grab_malware(mal):
 if __name__ == "__main__":
     
     parser = argparse.ArgumentParser(description="")
-    # group = parser.add_mutually_exclusive_group()
-    parser.add_argument('-actor', help="actor will return techniques")
-    parser.add_argument('-mal', help="malware will return attack technique")
-    parser.add_argument('-attack', help="attack will return mitigation techniques")
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument('-actor', help="actor will return techniques")
+    group.add_argument('-mal', help="malware will return attack technique")
+    group.add_argument('-attack', help="attack will return mitigation techniques")
+
     args = parser.parse_args()
 
     if args.actor:

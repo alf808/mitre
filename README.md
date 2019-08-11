@@ -2,7 +2,6 @@
 
 This application will extract information from the pyattck database.
 
-Don't run flags concurrently.
     -actor flag will return an actor with RDP as a technique with recommended mitigation
     -mal flag will return entered malware with associated attack techniques
     -attack flag will return the mitigation techniques against the attack
