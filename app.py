@@ -50,10 +50,10 @@ def main():
     choice = "0"
     while True:
         print("Main Choice: Choose 1 of 3 choices")
-        print("Choose 1 for Threat Actor")
-        print("Choose 2 for Type of Malware")
-        print("Choose 3 for Technique Mitigation")
-        print("Choose 4 to exit")
+        print("(1) for Threat Actor\t (2) Type of Malware\t (3) Technique Mitigation\t (4) Exit")
+        #print("Choose 2 for Type of Malware")
+       # print("Choose 3 for Technique Mitigation")
+       # print("Choose 4 to exit")
 
         choice = input("Enter your choice:  ")
 
