@@ -45,10 +45,12 @@ def grab_malware(mal):
         if mw.name.lower() == mal.lower():
             print('Malware: ' + mw.name)
             print('Description: ' + mw.description)
+            print("Actors: " + mw.name)
+            for actors in mw.actors:
+                print('\t' + actors.name)
             print('Attack techniques associated with: ' + mw.name)
             for technique in mw.techniques:
                 print('\t' + technique.name)
-
 
 def print_actors():
     actor_list = [act.name for act in attack.actors]
