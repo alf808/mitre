@@ -59,6 +59,18 @@ def grab_malware(mal):
             for technique in mw.techniques:
                 print('\t' + technique.name)
 
+def grab_tools(tol):
+    for tools in attack.tools:
+        if tools.name.lower() == tol.lower():
+            print('Tool: ' + tools.name)
+            print('Desription: ' + tools.description)
+            print('Actors: ' + tools.name)
+            for actors in tools.actors:
+                print('\t' + actors.name)
+            print('Techniques associated with: ' + tools.name)
+            for tech in tools.techniques:
+                print('\t' + tech.name)
+
 def print_actors():
     actor_list = [act.name for act in attack.actors]
     print("Here is a sample list of actors.")
@@ -81,13 +93,18 @@ def print_tactics():
     print("Here is a sample list of tactics.")
     tactics_list = [att.name for att in attack.tactics]
     print(*tactics_list, sep = "\t")
+
+def print_tools():
+    print("List of tools.")
+    tools_list = [tol.name for tol in attack.tools]
+    print(*tools_list, sep ='\t')
     
 
 def main():
     choice = "0"
     while True:
         print("\nMenu Choices:")
-        print("(1) Threat Actor\t(2) Malware\t(3) Attack to Mitigate\t(4) Tactics\t(x) Exit")
+        print("(1) Threat Actor\t(2) Malware\t(3) Attack to Mitigate\t(4) Tactics\t(5) Tools\t(x) Exit")
 
         choice = input("Enter your choice:  ")
 
@@ -107,6 +124,10 @@ def main():
             print_tactics()
             type = input("Tactic techniques: ")
             grab_tactics(type)
+        elif choice == "5":
+            print_tools()
+            type = input("Enter Tool: ")
+            grab_tools(type)
         elif choice == "x":
             sys.exit("Thanks for wasting our time")
         else:
